@@ -79,10 +79,8 @@ clear_command = "cls" if os_type == 'nt' else "clear"
 color_obj = utils.Color()
 os.environ['PATH'] = ffmpeg_path + os.pathsep + current_env_path
 
-is_push_done = False
 is_push_name = ""
 lock = threading.Lock()
-
 
 def signal_handler(_signal, _frame):
     sys.exit(0)
@@ -498,7 +496,7 @@ def check_subprocess_file(record_name: str, record_url: str, ffmpeg_command: lis
 def check_subprocess(record_name: str, record_url: str, ffmpeg_command: list, save_type: str,
                           script_command: str | None = None) -> bool:
     # 1. 原地替换：本地路径 → 推流地址
-    push_url = "rtmp://172.100.3.10/14b4cb21-7a2a-4e3b-94bd-ee6d411d6540.stream"  # ← 这里写死 or 按规则拼
+    push_url = "rtmp://172.25.225.27:31935/cfbb27de-e6e2-4c06-8bb1-3069d4364a48.stream"  # ← 这里写死 or 按规则拼
     # 示例：用主播名当流密钥
     # push_url = f"rtmp://restreamer-ip:1935/live/{record_name.split()[0]}"
 
