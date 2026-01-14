@@ -539,10 +539,12 @@ def check_subprocess(record_name: str, record_url: str, ffmpeg_command: list, sa
 
     if return_code == 0:
         print(f"\n{record_name} {stop_time} 推流正常结束\n")
+        logger.error(f"\n{record_name} {stop_time} 推流正常结束\n")
     else:
         color_obj.print_colored(
             f"\n{record_name} {stop_time} 推流异常退出,返回码: {return_code}\n", color_obj.RED
         )
+        logger.error(f"\n{record_name} {stop_time} 推流异常退出,返回码: {return_code}\n")
 
     # if return_code == 0:
     #     if converts_to_mp4 and save_type == 'TS':

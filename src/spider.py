@@ -582,7 +582,8 @@ async def get_douyu_info_data(url: str, proxy_addr: OptionalStr = None, cookies:
         "anchor_name": json_data['room']['nickname'],
         "is_live": False
     }
-    if json_data['room']['videoLoop'] == 0 and json_data['room']['show_status'] == 1:
+    # if json_data['room']['videoLoop'] == 0 and json_data['room']['show_status'] == 1:
+    if (json_data['room']['videoLoop'] == 0 or json_data['room']['videoLoop'] == 1)and json_data['room']['show_status'] == 1:
         result["title"] = json_data['room']['room_name'].replace('&nbsp;', '')
         result["is_live"] = True
         result["room_id"] = json_data['room']['room_id']
